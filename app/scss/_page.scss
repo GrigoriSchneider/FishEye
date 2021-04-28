@@ -1,0 +1,92 @@
+.header-wrapper{
+
+    .header{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 80px 50px;
+        justify-items: center;
+        align-items: center;
+        // margin-left: 20px;
+        // margin-top: 40px;
+        // .header-svg
+        &-svg img{
+
+           
+            width: 150px;
+            height: 30px;
+        }
+        // .header-nav
+        &-nav {
+            grid-column: 1/3;
+            ul{
+                display: grid;
+                grid-template-columns: repeat(4, min-content);
+                grid-gap: .3rem;
+                justify-items: center;
+                
+            }
+            
+            // .header-nav-item
+            &-item{
+                border: 1px solid $color-grey;
+                border-radius: 1rem;
+                font-size: 12px;
+                a{
+                    color: $color-primary;
+                    margin-left: .4rem;
+                    margin-right: .4rem;
+                    
+                }
+            }
+            
+        }
+
+        h1{
+            font-size: 18px;
+            color: $color-primary;
+            font-weight: 300;
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+        
+    }
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+
+    &-img{
+        border-radius: 50%;
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        margin-bottom: 25px;
+    }
+    &-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 120px;
+    }
+
+    &-name{
+        color: $color-secondary;
+        font-size: 36px;
+    }
+    &-city{
+        font-size: 13px;
+        color: $color-primary;
+    }
+    &-tagline{
+        font-size: 11px;
+    }
+    &-price{
+        font-size: 12;
+        color:$color-dark-grey;
+    }
+}

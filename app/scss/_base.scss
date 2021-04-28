@@ -1,0 +1,46 @@
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    
+}
+input[type=text]{
+    box-sizing: border-box;
+}
+
+h1, p{
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+ul{list-style-type:none;}
+
+// COLORS
+
+$color-primary: #901c1c;    // Background 
+$color-secondary: #D3573C;  // Background hover & focus
+$color-tertiary:    #BF5138; // Font
+
+$color-grey: #FAFAFA;
+$color-dark-grey: #525252;
+$color-btn-howitworks: #f6f6f6;
+$color-footer: #353535;
+
+
+// Fonts
+$font-primary: 'Roboto', sans-serif;
+
+// BREAK POINTS
+$ipad: 768px;
+$ipadpro: 1024px;
+$screen: 1366px;
+$bigscreen: 1600px;
+
+// Border
+$border-radius: 1.5rem;
+
