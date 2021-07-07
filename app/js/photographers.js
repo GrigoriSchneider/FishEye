@@ -128,7 +128,7 @@ function generateAlbum(data, photographerNumber) {
                 html += `<a href="#" poster=""onclick="openModal(); currentSlide(` + [j] + `)">`;
                 html += `<img role="Video Link" class="hover-shadow" alt="${title}" src="img/${fileName}/${title}.jpg"></a>`;
                 html += `<div class="img-description"><p>${title}</p>`;
-                html += `<div class="heart-container"><p class="zeroLikes">${likes}</p><img  role="Image" alt="likes" aria-label="likes" class="heart" src="../img/heart.png"></div></div>`;
+                html += `<div class="heart-container"><p class="zeroLikes">${likes}</p><img  role="Image" alt="likes" aria-label="likes" class="heart" src="../img/heart.svg"></div></div>`;
                 html += `</div>`;
 
                 j++;
@@ -139,7 +139,7 @@ function generateAlbum(data, photographerNumber) {
                 html += `<div id="${mediaId}">`;
                 html += `<img role="Image Link" class="hover-shadow" alt="${title}" src="img/${fileName}/${img}" onclick="openModal();currentSlide(` + [j] + `)"  />`;
                 html += `<div class="img-description"><p>${title}</p>`;
-                html += `<div class="heart-container"><p class="zeroLikes">${likes}</p><img role="Image" alt="likes" aria-label="likes" class="heart" src="../img/heart.png"></div></div>`;
+                html += `<div class="heart-container"><p class="zeroLikes">${likes}</p><img role="Image" alt="likes" aria-label="likes" class="heart" src="../img/heart.svg"></div></div>`;
                 html += `</div>`
                 j++;
 
