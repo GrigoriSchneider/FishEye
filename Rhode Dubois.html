@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- General meta tags needed-->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Needed for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- If you want custom browser colors on mobile -->
+    <meta name="theme-color" content="#1843c1" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1843c1">
+
+    <title>FishEye Homepage</title>
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="dist/style.css?cb=1618409970001">
+</head>
+
+<!-- Organizer
+    0 = Mimi Keel
+    1 = Ellie-Rose Wilkens
+    2 = Tracy Galindo
+    3 = Nabeel Bradford
+    4 = Rhode Dubois
+    5 = Marcel Nikolic -->
+
+<body onload="organizer(4)">
+
+    <div class="header-wrapper-photographer">
+        <header class="header-photographer" alt="FishEye Homepage" role="Image link">
+            <a href="index.html" class="header-svg">
+                <img src="img/logo.svg" alt="">
+            </a>
+        </header>
+    </div>
+
+    <main class="main-photographer">
+        <div id="photographer">
+
+        </div>
+
+        <div class="sort-nav">
+            <div class="sort-nav-header">
+                <p>Order by</p>
+            </div>
+
+            <div class="dropdown">
+                <div class="dropdown-header"> <span>Options</span> <img src="img/arrow-down.svg" alt="arrow-down">
+                </div>
+
+                <div class="dropdown-content">
+                    <li onclick="sortBy(orderLikes)">
+                        <p>Popularity</p>
+                        <hr>
+                    </li>
+                    <li onclick="sortBy(orderDate)">
+                        <p>Date</p>
+                        <hr>
+                    </li>
+                    <li onclick="sortBy(orderAlphabet)">
+                        <p>Title</p>
+                    </li>
+                </div>
+            </div>
+        </div>
+
+        <div id="album">
+
+        </div>
+
+        <div id="priceperday">
+
+        </div>
+
+        <!-- The Modal/Lightbox -->
+        <div id="myModal" class="modal">
+            <span role="Button" alt="Close dialog" class="close-lightbox cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content" id="modal-content">
+                <!-- img inside here -->
+            </div>
+        </div>
+
+
+        <!-- Sign up Form -->
+
+        <div class="form__container" role="dialog" aria-labelledby="Contact me">
+            <!-- close -->
+            <div class="form__close" alt="Close Contact form" onclick="closeForm()">
+                <span>&times;</span>
+
+            </div>
+
+            <!--  -->
+            <div class="form__content">
+                <form class="form">
+                    <div class="form__control">
+                        <h1 role="heading h1">Contact me <br><span id="formPhotographerName"></span></h1>
+                    </div>
+                    <div class="form__control ">
+                        <label>First Name</label><br>
+                        <input aria-labelledby="First name" class="text-control " type="text" id="first" name="first"
+                            minlength="2" /><br>
+                        <i class="fas fa-check-circle check"></i>
+                        <i class="fas fa-exclamation-circle warning"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form__control ">
+                        <label>Last Name</label><br>
+                        <input aria-labelledby="Last Name" class="text-control" type="text" id="last" name="last"
+                            minlength="2" /><br>
+                        <i class="fas fa-check-circle check"></i>
+                        <i class="fas fa-exclamation-circle warning"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form__control">
+                        <label>Email</label><br>
+                        <input aria-labelledby="Email" class="text-control" type="email" id="email" name="email" /><br>
+                        <i class="fas fa-check-circle check"></i>
+                        <i class="fas fa-exclamation-circle warning"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form__control">
+                        <label>Your Message</label>
+                        <textarea aria-labelledby="Your message" placeholder="Message for user" class="form-area"
+                            id="messageField"></textarea>
+                    </div>
+
+                    <div class="form__btn-container">
+                        <button alt="send" class="form__btn" id="form-submit" type="submit">Send</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JavaScript File -->
+
+    <script src="app/js/photographers.js"></script>
+
+</body>
+
+
+
+</html>

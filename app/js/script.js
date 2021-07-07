@@ -14,9 +14,11 @@ function generatePerson(data) {
 
 
     const persons = data.photographers;
+    console.log(persons);
+    console.log(data.media);
 
 
-    persons.forEach((person, index) => {
+    persons.forEach((person) => {
         const personImg = person.portrait;
         const photographerName = person.name;
         const city = person.city;
@@ -25,62 +27,90 @@ function generatePerson(data) {
         const price = person.price
 
 
-
         html += `
-            <div class="card" >
-                <img class="card-img" src="img/PhotographersID/${personImg}" />
-                <div class="card-content">
+            <div class="card filterDiv show`;
+        // Add filter classes
+        for (let tags of person.tags) {
+            html += ' ' + tags;
+            console.log(tags);
+        };
+
+        html += `"  >
+                <a role="Image Link" alt="${photographerName}" href="${photographerName}.html">
+                    <img class="card-img" src="img/PhotographersID/${personImg}" />
+                </a>
+                <div role="Paragraph text" class="card-content">
                     <h2 class="card-name">${photographerName} </h2>
                     <p class="card-city">${city}, ${country}</p>
                     <p class="card-tagline">${tagline}</p>
                     <p class="card-price">$${price}/day</p>
-                    <ul id="tags-${index}">
-                                       
-                    </ul>
+                    <ul class="card-tags">`;
+
+        // Adding tags 
+        for (let tags of person.tags) {
+            html += '<li>#' + tags + '</li>';
+        };
+
+        html += `                             
+                   </ul>
                 </div>
             </div>
         `
 
-
-
-
-        // console.log(html);
     });
     main.innerHTML = html;
+}
 
+//////////////////////////////////
+// Filter for photographers
 
-    generateTags(persons);
+filterSelection("all")
+function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "all") c = "";
+    // Add the "show" class (display:flex) to the filtered elements, and remove the "show" class from the elements that are not selected
+    for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+        }
+    }
+    console.log(arr1);
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+    }
+    element.className = arr1.join(" ");
 }
 
 
-// function generateTags(data) {
-//     let htmlTags = '';
-//     const photographers = data;
-//     console.log(photographers);
-
-//     photographers.forEach((photographer, index) => {
-//         const tags = photographer.tags;
-
-//         htmlTags += `
-//             <li>
-//                 <a href="#">#${tag}</a>
-//             </li>
-//             `
-//     }
-
-//     // console.log(tags);
-// });
-// }
-    //     const tags = person.tags;
-
-    //     tags.forEach(tag => {
-    //         htmlTags += `
-    //         <li>
-    //             <a href="#">#${tag}</a>
-    //         </li>
-    //         `
-    //     )
-    // };
-
-
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("header-nav-item");
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+    });
+}
 

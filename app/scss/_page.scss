@@ -1,28 +1,69 @@
-.header-wrapper{
+.header-wrapper-photographer{
+    @media only screen and (min-width: $screen){
+        display: grid;
+        grid-template-columns: 1fr $screen 1fr;
+        grid-template-rows: 180px;
+        align-items: center;
 
+        .header-photographer{
+            grid-column: 2/3;
+            height: 80px;
+            width: 360px;
+        }
+    }
+    .header-svg img{ 
+        width: 150px;
+        height: 30px;
+
+        @media only screen and (min-width: $screen){
+            height: 80px;
+            width: 360px;
+            margin-left: 4rem;
+        }
+    }
+}
+// mainpage
+.header-wrapper{
+    // header mainpage
     .header{
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 80px 50px;
         justify-items: center;
         align-items: center;
-        // margin-left: 20px;
-        // margin-top: 40px;
+       
+        @media only screen and (min-width: $screen){
+            grid-template-rows: 150px ;
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+        
         // .header-svg
         &-svg img{
 
            
             width: 150px;
             height: 30px;
+
+            @media only screen and (min-width: $screen){
+                height: 40px;
+                width: 180px;
+            }
         }
         // .header-nav
         &-nav {
             grid-column: 1/3;
+            @media only screen and (min-width: $screen){
+                grid-column: 2/3;
+            }
             ul{
                 display: grid;
                 grid-template-columns: repeat(4, min-content);
                 grid-gap: .3rem;
                 justify-items: center;
+
+                @media only screen and (min-width: $screen){
+                    grid-template-columns:  repeat(9, min-content);
+                }
                 
             }
             
@@ -31,12 +72,25 @@
                 border: 1px solid $color-grey;
                 border-radius: 1rem;
                 font-size: 12px;
+                @media only screen and (min-width: $screen){
+                    font-size: 18px;
+                }
                 a{
                     color: $color-primary;
                     margin-left: .4rem;
                     margin-right: .4rem;
                     
+                   
                 }
+              
+            }
+
+            // activ btn
+            .active{
+                background-color: $color-primary;
+               a{
+                color: white; 
+               }
             }
             
         }
@@ -47,8 +101,37 @@
             font-weight: 300;
             grid-column: 2/3;
             grid-row: 1/2;
+            @media only screen and (min-width: $screen){
+                grid-column: 3/4;
+                font-size: 36px;
+            }
         }
         
+    }
+}
+// main main page
+.main-index{
+    @media only screen and (min-width: $screen){
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-row-gap: 2.5rem;
+    }
+}
+//  main photographer  
+.main-photographer{
+    @media only screen and (min-width: $screen){
+        display: grid;
+        grid-template-columns: 1fr 1240px 1fr;
+        
+        
+        #photographer{
+            // height: 250px;
+            grid-column: 2/3;
+        }
+        #album{
+            grid-column: 2/3;
+        }
+    
     }
 }
 
@@ -67,11 +150,18 @@
         margin-bottom: 25px;
     }
     &-content{
+       
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         height: 120px;
+        
+        @media only screen and (min-width: $screen){
+            height: 135px;
+            margin-left: 1.5rem;
+            
+        }
     }
 
     &-name{
@@ -84,9 +174,550 @@
     }
     &-tagline{
         font-size: 11px;
+        @media only screen and (min-width: $screen){
+            font-size: 12px;
+        }
     }
     &-price{
-        font-size: 12;
+        
         color:$color-dark-grey;
+    }
+    &-tags{
+        display: flex;
+        flex-direction: row;
+        
+        li{
+            border: solid 1px $color-dark-grey;
+            border-radius: .5rem;
+            color:$color-primary;
+            font-size: 12px;
+            display: inline-block;
+            padding-left: .4rem;
+            padding-right: .4rem;
+            margin-left: .5rem;
+
+            @media only screen and (min-width: $screen){
+                font-size: 18px;
+            }
+        }
+    }
+    &-contact{
+        display: block;
+        position: fixed;
+        bottom: 10%;
+        color: #fefefe;
+        border: none;
+        height: 35px;
+        width: 170px;
+        border-radius: .5rem;
+        left:25%;
+        background-color: $color-primary;
+        box-shadow: 0 0 20px rgba(22, 21, 21, 0.63);
+        background-size: 200% auto;
+
+        @media only screen and (min-width: $screen){
+            position: absolute;
+            left: 21rem;
+            top: -11rem;
+            height: 69px;
+            font-size: 20px;
+
+            &-container{
+                position: relative;
+            }
+
+            // position: relative;
+        }
+        
+
+        // &:hover{
+        //     background-position: right center;
+            
+         
+        // }
+    }
+}
+
+
+.filterDiv{
+    display: none;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+}
+
+
+
+//////////////////////////////////////////////////
+// Album filter
+
+// .sort-nav{
+//     display: block;
+// }
+
+// album
+
+#album{
+    .album-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media only screen and (min-width: $screen){
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        img{
+            width: 335px;
+            height: 190px;
+            object-fit: cover;
+            object-position: 50% 30%;
+            border-radius: 5px;
+            @media only screen and (min-width: $screen){
+                width: 350px;
+                height: 350px;
+            }
+
+           
+        }
+        .heart-container{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+        .heart{
+            height: 20px;
+            width: 22px;
+            margin: 10px;
+        
+        }
+        .img-description{
+            color: $color-primary;
+            width: 335px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @media only screen and (min-width: $screen){
+                font-size: 24px;
+                margin-bottom: 25px;
+            }
+        }
+    
+    }
+}
+
+/////////////////////////////////////////////////////
+// Photographer
+.header-photographer{
+    display: flex;
+    height: 80px;
+    flex-direction: row;
+    align-items: center;
+
+    .header-svg{
+        margin-left: 1rem;
+    }
+
+}
+
+.card-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    @media only screen and (min-width: $screen){
+        margin-left: 0;
+        margin-right: 0;
+    }
+    // .card-content{
+
+    // }
+    .card-img{
+        height: 100px;
+        width: 100px;
+        
+    }
+}
+
+#photographer {
+    height: 250px;
+    @media only screen and (min-width: $screen){
+        grid-column: 2/3;
+        width: 1240px; 
+        height: 300px;
+        background-color: #fafafa;
+    }
+   
+    .card{
+        &-info{
+          
+        }
+        &-img{
+            @media only screen and (min-width: $screen){
+                height: 250px;
+                width: 250px;
+                margin-top: 1.5rem;
+                margin-right: 5rem;
+            }           
+        }
+        &-content{
+            align-items: flex-start;
+            height: 230px;
+            @media only screen and (min-width: $screen){
+                height: 300px;
+                justify-content: space-around;
+            }
+        }
+        &-name{
+            @media only screen and (min-width: $screen){
+                font-size: 64px;
+            }
+        }
+        &-city{
+            @media only screen and (min-width: $screen){
+                font-size: 24px;
+            }
+        }
+        &-tagline{
+            font-size: 18px;
+        }
+        &-tags li:first-child{
+            margin-left: 0;
+        }
+    }
+    
+    
+}
+// Price per day
+#priceperday{
+    display: none;
+    @media only screen and (min-width: $screen){
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        right: 10%;
+        width: 376px;
+        height: 70px;
+        background-color: $color-secondary;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 30px;
+        border-top-left-radius: .5rem;  
+        border-top-right-radius: .5rem;  
+    }
+}
+
+
+// sort album
+.sort-nav{
+    display: none;
+    @media only screen and (min-width: $screen){
+        display: flex;
+        grid-column: 2/3;
+        font-size: 26px;
+        height: 5rem;
+        position: relative;
+    }
+    
+    &-header {
+        display: flex;
+        align-items: center;
+    }
+    .dropdown{
+        margin-left: 1rem;
+        background-color: $color-primary;
+        color: #fff;
+        height: 70px;
+        width: 11rem;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        border-radius: .5rem;
+
+    
+
+        &-header{            
+            span{
+                margin-right: 1.5rem;
+            }
+        }
+        
+    }
+
+    .dropdown-content {
+        background-color: $color-primary;
+        color: #fff;
+        display: none;
+        flex-direction: column;
+        padding-left: 1rem;
+        justify-content: space-around;
+        position: absolute;
+        top:0;
+        left: 7rem;
+        width: 11rem;
+        height: 170px;
+        border-radius: .5rem;
+
+        list-style-type: none;
+        hr{
+            width: 87%;
+            color: #fff;
+            margin-top: .5rem;
+        }
+    }
+      
+    .dropdown:hover .dropdown-content {
+        display: flex;
+        cursor: pointer;
+    }
+   
+}
+
+////////////////////////////////////////////////
+// Lightbox
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #fefefe;
+}
+
+  /* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 290px;
+    @media only screen and (min-width: $screen){
+        max-width: 1050px;
+
+    }
+}
+
+/* The Close Button Lightbox */
+.close-lightbox {
+    color: $color-primary;
+    position: absolute;
+    font-size: 35px;
+    font-weight: bold;
+    top: 90px;
+    right: 16px;
+    @media only screen and (min-width: $screen){
+        right: 9%;
+        font-size: 52px;
+    }
+}
+  
+  .close-lightbox:hover,
+  .close-lightbox:focus {
+    color: darken($color-primary,15%);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+    display: none;
+    
+    img{
+        object-fit: cover;
+        width: 290px;
+        border-radius: .2rem;
+        @media only screen and (min-width: $screen){
+            width: 1050px;
+            height: 900px;
+        }
+    }
+    video{
+        width: 300px;
+        @media only screen and (min-width: $screen){
+            width: 1050px;
+        }
+    }
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: $color-primary;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  @media only screen and (min-width: $screen){
+      font-size: 48px;
+  }
+}
+
+/* Position the "prev button" to the left */
+.prev{
+    left: -13%;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: -13%;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.caption-container {
+    
+    background-color: #fefefe;
+    color: $color-primary;
+    p{
+        border: none;
+        @media only screen and (min-width: $screen){
+            font-size: 20px;
+        }
+    }
+}
+
+img.hover-shadow {
+    transition: 0.3s;
+}
+  
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+////////////////////////////////////////////
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    @media only screen and (min-width: $screen){
+        width: 600px;
+    }
+    &__container{
+        display: none;
+        // flex-direction: column;
+        // justify-content: space-between;
+        background-color: $color-bg-form;
+        position: relative;
+        padding-left: 17px;
+        padding-right: 17px;
+        padding-top: 20px;
+        border-radius: .5rem;
+        height: 800px;
+        @media only screen and (min-width: $screen){
+            width: 670px;
+            height: 900px;
+            margin-top: 15vh;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            grid-column: 2/3;
+        }
+    }
+
+    &__close{
+        position: absolute;
+        margin-top: 15px;
+        // text-align: right;
+        color: white;
+        right: 15px;
+        font-size: 36px;
+        font-weight: bold;
+        @media only screen and (min-width: $screen){
+            font-size: 60px;
+        }
+    }
+   
+    &__control{
+        
+        h4{
+            font-size: 36px;
+            @media only screen and (min-width: $screen){
+                font-size: 64px;
+            }
+
+        }
+        label{
+            font-size: 26px;
+            color: $color-label-form;
+            @media only screen and (min-width: $screen){
+                font-size: 36px;
+            }
+
+        }
+        input{
+            width: 338px;
+            height: 52px;
+            border-radius: .5rem;
+            border: none;
+            @media only screen and (min-width: $screen){
+                width: 100%;
+                font-size: 24px;
+            }
+        }
+        small{
+            display: none;
+        }
+        textarea{
+            height: 180px;
+            width: 338px;
+            border: none;
+            border-radius: .5rem;
+            @media only screen and (min-width: $screen){
+                width: 100%;
+                font-size: 24px;
+            }
+        }
+        small{
+            color:$color-primary;
+            visibility: hidden;
+        }
+    }
+    &__btn-container{
+        display: flex;
+        justify-content: center;
+        @media only screen and (min-width: $screen){
+            justify-content: start;
+        }
+    }
+    &__btn{
+        width: 175px;
+        height: 35px;
+        font-size: 18px;
+        border:none;
+        border-radius: .5rem;
+        background-color: $color-primary;
+        color: #fff;
+        margin-bottom: 40px;
+        @media only screen and (min-width: $screen){
+            height: 60px;
+            font-size: 24px;
+        }
     }
 }
