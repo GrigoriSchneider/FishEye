@@ -14,8 +14,6 @@ function generatePerson(data) {
 
 
     const persons = data.photographers;
-    console.log(persons);
-    console.log(data.media);
 
 
     persons.forEach((person) => {
@@ -32,7 +30,6 @@ function generatePerson(data) {
         // Add filter classes
         for (let tags of person.tags) {
             html += ' ' + tags;
-            console.log(tags);
         };
 
         html += `"  >
@@ -86,7 +83,6 @@ function w3AddClass(element, name) {
             element.className += " " + arr2[i];
         }
     }
-    console.log(arr1);
 }
 
 // Hide elements that are not selected

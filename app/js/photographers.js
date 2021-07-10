@@ -85,7 +85,6 @@ function generatePerson(data, photographerNumber) {
     // Getting the photograherName for the form
     formSpan = `${photographerName}`;
 
-    console.log(formSpan);
     formPhotographerName.innerHTML = formSpan;
 
 
@@ -128,7 +127,7 @@ function generateAlbum(data, photographerNumber) {
                 html += `<a href="#" poster=""onclick="openModal(); currentSlide(` + [j] + `)">`;
                 html += `<img role="Video Link" class="hover-shadow" alt="${title}" src="img/${fileName}/${title}.jpg"></a>`;
                 html += `<div class="img-description"><p>${title}</p>`;
-                html += `<div class="heart-container"><p class="zeroLikes">${likes}</p><img  role="Image" alt="likes" aria-label="likes" class="heart" src="img/heartRed.svg"></div></div>`;
+                html += `<div class="heart-container"><p class="zeroLikes">${likes}</p><embed  role="Image" alt="likes" aria-label="likes" class="heart" src="img/heartRed.svg"></div></div>`;
                 html += `</div>`;
 
 
@@ -141,7 +140,7 @@ function generateAlbum(data, photographerNumber) {
                 html += `<div id="${mediaId}">`;
                 html += `<img role="Image Link" class="hover-shadow" alt="${title}" src="img/${fileName}/${img}" onclick="openModal();currentSlide(` + [j] + `)"  />`;
                 html += `<div class="img-description"><p>${title}</p>`;
-                html += `<div class="heart-container"><p class="zeroLikes">${likes}</p><img role="Image" alt="likes" aria-label="likes" class="heart" src="img/heartRed.svg"></div></div>`;
+                html += `<div class="heart-container"><p class="zeroLikes">${likes}</p><embed role="Image" alt="likes" aria-label="likes" class="heart" src="img/heartRed.svg"></div></div>`;
                 html += `</div>`
                 j++;
 
@@ -254,7 +253,6 @@ setTimeout(
 
 
         pricePerDay.innerHTML = html;
-        // console.log(price);
     }, 1000
 );
 
